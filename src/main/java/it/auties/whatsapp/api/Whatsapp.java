@@ -143,7 +143,7 @@ public class Whatsapp {
             if (reason == DisconnectReason.LOGGED_OUT) {
                 removeInstanceByUuid(store.uuid());
             } else {
-                println("Session was not removed");
+                System.out.println("Session was not removed");
             }
         });
     }
