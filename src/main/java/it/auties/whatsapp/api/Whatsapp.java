@@ -140,8 +140,10 @@ public class Whatsapp {
 
     private static void addDisconnectionHandler(Store store) {
         store.addListener((OnDisconnected) (reason) -> {
-            if (reason != DisconnectReason.RECONNECTING) {
+            if (reason == DisconnectReason.LOGGED_OUT) {
                 removeInstanceByUuid(store.uuid());
+            } else {
+                println("Session was not removed");
             }
         });
     }
